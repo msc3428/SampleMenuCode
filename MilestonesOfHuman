@@ -1,0 +1,440 @@
+#include <stdio.h> 
+#include <math.h>
+#include <stdlib.h>
+
+void mySwitch(int c);
+
+void mySwitch(int c) {
+
+    char answer;
+    int q;
+
+    delta:
+    switch(c) {
+
+        case 0:
+            printf("--------------------------------------\n");
+            printf("Five Equations That Changed The World.\n");
+            printf("--------------------------------------\n");
+            printf("1) Universal Law of Gravity\n");
+            printf("2) Law of Hydrodynamic Pressure\n");
+            printf("3) Law of Electromagnetic Induction\n");
+            printf("4) Second Law of Thermodynamics\n");
+            printf("5) Theory of Special Relativity\n");
+            break;
+
+        case 1:
+            printf("----------------------------\n");
+            printf("Universal Law of Gravity \n");
+            printf("----------------------------\n");
+            printf("The Universal Law of Gravity, formulated by Sir Isaac Newton in the 17th century, is one of the fundamental principles of physics and astronomy. This law states that every mass in the universe attracts every other mass with a force that is directly proportional to the product of their masses and inversely proportional to the square of the distance between their centers.\n");
+            printf("---------------------------------------------------------------------\n");
+            printf("Do you want to calculate the gravitational force between two masses? \n");
+            printf("---------------------------------------------------------------------\n");
+            printf("Yes/No (Y/N): ");
+            scanf(" %c", &answer);
+
+            calculation:
+            if (answer == 'y' || answer == 'Y') {
+
+                long double m1, m2, r;
+                const long double G = 6.67430e-11;
+
+                printf("----------------------------\n");
+                printf("Please enter the mass 1 (kg): ");
+                scanf("%Lg", &m1);
+
+                printf("Please enter the mass 2 (kg): ");
+                scanf("%Lg", &m2);
+
+                printf("Please enter the radius (m): ");
+                scanf("%Lg", &r);
+
+                long double force = ((m1 * m2) / (r * r))*G;
+
+                printf("-------------------------------------\n");
+                printf("Here is the result (Newton):%Lg N\n", force);
+                printf("-------------------------------------\n");
+                printf("Would you like to make another calculation?\n");
+
+                printf("Yes/No (Y/N): ");
+                scanf(" %c", &answer);
+
+                if (answer == 'y' || answer == 'Y')
+                {
+                    goto calculation;
+                } else if (answer == 'N' || answer == 'n') {
+
+                    printf("Press 0 to return to the main menu or Press 9 to shut down the program.\n");
+
+                    scanf("%d", &q);
+
+                    if (q == 0) {
+                        c = 0;
+                        goto delta; 
+                    }else if (q == 9) {
+                        printf("Exiting...");
+                        exit(0);
+                    }
+                    else {
+                    printf("Invalid choice. Please try again. ");
+                    goto choice;
+                    }
+                }
+            }
+            choice:
+            if (answer == 'N' || answer == 'n') {
+
+                printf("----------------------------------------------------\n");
+                printf("Press 0 to return to the main menu or Press 9 to shut down the program.\n");
+
+                scanf("%d", &q);
+
+                if (q == 0) {
+                    c = 0;
+                    goto delta; 
+                } else if (q == 9) {
+                        printf("Exiting...");
+                        exit(0);
+                }else {
+                    printf("Invalid choice. Please try again. ");
+                    goto choice;
+                }
+            }
+            break;
+
+        case 2:
+            printf("----------------------------\n");
+            printf("Law of Hydrodynamic Pressure\n");
+            printf("----------------------------\n");
+            printf("The Law of Hydrodynamic Pressure, also known as Bernoulli's principle, describes the relationship between the velocity and pressure of a fluid in motion. It states that as the velocity of a fluid increases, the pressure exerted by the fluid decreases, and conversely, as the velocity decreases, the pressure increases.\n");
+            printf("---------------------------------------------------------------------\n");
+            printf("Do you want to calculate the hydrodynamic pressure? \n");
+            printf("---------------------------------------------------------------------\n"); 
+
+            printf("Yes/No (Y/N): ");
+            scanf(" %c", &answer);
+
+            calculation1:
+            if (answer == 'y' || answer == 'Y') {
+
+                double P, rho, v, g, h;
+
+                printf("Enter the value of static pressure (P): ");
+                scanf("%lf", &P);
+                printf("Enter the value of fluid density (rho): ");
+                scanf("%lf", &rho);
+                printf("Enter the value of fluid velocity (v): ");
+                scanf("%lf", &v);
+                printf("Enter the value of acceleration due to gravity (g): ");
+                scanf("%lf", &g);
+                printf("Enter the value of height (h): ");
+                scanf("%lf", &h);
+
+                double constant = P + 0.5 * rho * pow(v, 2) + rho * g * h;
+
+                printf("The constant value is: %f\n", constant);
+                printf("-------------------------------------\n");
+                printf("Would you like to make another calculation?\n");
+
+                printf("Yes/No (Y/N): ");
+                scanf(" %c", &answer);
+
+                if (answer == 'y' || answer == 'Y')
+                {
+                    goto calculation1;
+                } else if (answer == 'N' || answer == 'n') {
+
+                    printf("Press 0 to return to the main menu or Press 9 to shut down the program.\n");
+
+                    scanf("%d", &q);
+
+                    if (q == 9) {
+                        printf("Exiting...");
+                        exit(0);
+                    } else if (q == 0) {
+                        c = 0;
+                        goto delta; 
+                    }
+                }
+            }
+
+            choice1:
+            if (answer == 'N' || answer == 'n') {
+
+                printf("----------------------------------------------------\n");
+                printf("Press 0 to return to the main menu or Press 9 to shut down the program.\n");
+
+                scanf("%d", &q);
+
+                if (q == 0) {
+                    c = 0;
+                    goto delta; 
+                } else if (q == 9) {
+                        printf("Exiting...");
+                        exit(0);
+                }else {
+                    printf("Invalid choice. Please try again. ");
+                    goto choice1;
+                }
+
+            }
+            break;
+
+        case 3:
+            printf("----------------------------\n");
+            printf("Law of Electromagnetic Induction\n");
+            printf("----------------------------\n");
+            printf("The Law of Electromagnetic Induction, discovered by Michael Faraday in 1831, describes how a changing magnetic field generates an electromotive force (emf) in a closed circuit.\n");
+            printf("---------------------------------------------------------------------\n");
+            printf("Do you want to calculate the Electromagnetic Induction? \n");
+            printf("---------------------------------------------------------------------\n"); 
+
+            printf("Yes/No (Y/N): ");
+            scanf(" %c", &answer);
+
+            calculation2:
+            if (answer == 'y' || answer == 'Y') {
+
+                double B, A, t;
+
+                printf("Enter the value of magnetic field strength (B): ");
+                scanf("%lf", &B);
+                printf("Enter the value of area (A): ");
+                scanf("%lf", &A);
+                printf("Enter the value of time rate of change (t): ");
+                scanf("%lf", &t);
+
+                double emf = -B * A * t;
+
+                printf("The induced electromotive force (emf) is: %f\n", emf);
+                printf("-------------------------------------\n");
+                printf("Would you like to make another calculation?\n");
+
+                printf("Yes/No (Y/N): ");
+                scanf(" %c", &answer);
+
+                if (answer == 'y' || answer == 'Y')
+                {
+                    goto calculation2;
+                } else if (answer == 'N' || answer == 'n') {
+
+                    printf("Press 0 to return to the main menu or Press 9 to shut down the program.\n");
+                    scanf("%d", &q);
+
+                    if (q == 0) {
+                        c = 0;
+                        goto delta; 
+                    } else if (q == 9) {
+                        printf("Exiting...");
+                        exit(0);
+                    } else {
+                    printf("Invalid choice. Please try again. ");
+                    goto choice2;
+                    }
+                }
+            }
+
+            choice2:
+            if (answer == 'N' || answer == 'n') {
+
+                printf("----------------------------------------------------\n");
+                printf("Press 0 to return to the main menu or Press 9 to shut down the program.\n");
+
+                scanf("%d", &q);
+
+                if (q == 0) {
+                    c = 0;
+                    goto delta; 
+                } else if (q == 9) {
+                        printf("Exiting...");
+                        exit(0);
+                }else {
+                    printf("Invalid choice. Please try again. ");
+                    goto choice2;
+                }
+
+            }
+            break;
+
+        case 4:
+            printf("----------------------------\n");
+            printf("Second Law of Thermodynamics\n");
+            printf("----------------------------\n");
+            printf("The Second Law of Thermodynamics states that the total entropy of an isolated system can never decrease over time. In other words, it asserts that heat spontaneously flows from hotter to colder bodies and not the other way around. Additionally, it implies the existence of phenomena such as the irreversibility of natural processes.\n");
+            printf("---------------------------------------------------------------------\n");
+            printf("Do you want to explore more about the Second Law of Thermodynamics?\n");
+            printf("---------------------------------------------------------------------\n");
+
+            printf("Yes/No (Y/N): ");
+            scanf(" %c", &answer);
+
+            if (answer == 'y' || answer == 'Y') {
+                printf("----------------------------------------------------\n");
+                printf("The Second Law of Thermodynamics implies several important concepts:\n");
+                printf("1. Entropy: It is a measure of the disorder or randomness of a system. The Second Law states that the entropy of an isolated system tends to increase over time.\n");
+                printf("2. Irreversibility: Many natural processes are irreversible, meaning they proceed in one direction only and cannot be undone.\n");
+                printf("3. Heat Transfer: Heat naturally flows from regions of higher temperature to regions of lower temperature, never spontaneously in the reverse direction.\n");
+                printf("4. Efficiency: The Second Law imposes limits on the efficiency of heat engines and other thermodynamic processes.\n");
+                printf("5. Carnot Cycle: It establishes the maximum possible efficiency of a heat engine operating between two temperature reservoirs.\n");
+                printf("----------------------------------------------------\n");
+                printf("Do you want to calculate the change of entropy?\n");
+                printf("Yes/No (Y/N): ");
+                scanf(" %c", &answer);
+
+                calculation3:
+                if (answer == 'y' || answer == 'Y') {
+
+                    double delta_Q, temperature;
+                    double delta_S;
+
+                    printf("Enter the heat transfer (delta Q): ");
+                    scanf("%lf", &delta_Q);
+
+                    printf("Enter the temperature (T): ");
+                    scanf("%lf", &temperature);
+
+                    delta_S = delta_Q / temperature;
+
+                    printf("The change in entropy (delta S) is: %f\n", delta_S);
+                    printf("----------------------------------------------------\n");
+                    printf("Would you like to make another calculation?\n");
+
+                    printf("Yes/No (Y/N): ");
+                    scanf(" %c", &answer);
+
+                    if (answer == 'y' || answer == 'Y') {
+                        goto calculation3;
+                    } else if (answer == 'N' || answer == 'n') {
+
+                        printf("Press 0 to return to the main menu or Press 9 to shut down the program.\n");
+                        scanf("%d", &q);
+
+                        if (q == 0) {
+                            c = 0;
+                            goto delta; 
+                        }else if (q == 9) {
+                        printf("Exiting...");
+                        exit(0);
+                        } else {
+                        printf("Invalid choice. Please try again. ");
+                        goto choice2;
+                        }   
+                    }
+                }
+            }
+
+            printf("Press 0 to return to the main menu or Press 9 to shut down the program.\n");
+            scanf("%d", &q);
+
+            if (q == 0) {
+                c = 0;
+                goto delta;
+            }else if (q == 9) {
+                printf("Exiting...");
+                exit(0);
+            }else {
+                printf("Invalid choice. Please try again. ");
+                goto choice2;
+            }
+            break;
+
+        case 5:
+            printf("----------------------------\n");
+            printf("Theory of Special Relativity\n");
+            printf("----------------------------\n");
+            printf("Albert Einstein's 1905 theory of special relativity is one of the most important papers ever published in the field of physics. Special relativity is an explanation of how speed affects mass, time and space. The theory includes a way for the speed of light to define the relationship between energy and matter - small amounts of mass (m) can be interchangeable with enormous amounts of energy (E), as defined by the classic equation E = mc^2.\n");
+            printf("---------------------------------------------------------------------\n");
+            printf("Do you want to calculate any object's energy? But remember, no object with mass can travel at speed C.\n");
+            printf("---------------------------------------------------------------------\n"); 
+
+            printf("Yes/No (Y/N): ");
+            scanf(" %c", &answer);
+
+            calculation4:
+            if (answer == 'y' || answer == 'Y') {
+
+                double mass, speedOfLight;
+
+                printf("Enter the mass (m): ");
+                scanf("%lf", &mass);
+                printf("Enter the speed of light (c): ");
+                scanf("%lf", &speedOfLight);
+
+                double E = mass * pow(c, 2);
+
+                printf("The result is (E) = %f\n", E);
+                printf("-------------------------------------\n");
+                printf("Would you like to make another calculation?\n");
+
+                printf("Yes/No (Y/N): ");
+                scanf(" %c", &answer);
+
+                if (answer == 'y' || answer == 'Y') {
+                goto calculation4;
+                } else if (answer == 'N' || answer == 'n') {
+
+                    printf("Press 0 to return to the main menu or Press 9 to shut down the program.\n");
+                    scanf("%d", &q);
+
+                    if (q == 0) {
+                        c = 0;
+                        goto delta; 
+                    } else if (q == 9) {
+                        printf("Exiting...");
+                        exit(0);
+                    }
+                    else {
+                    printf("Invalid choice. Please try again. ");
+                    goto choice2;
+                    }   
+                }
+            }
+            choice3:
+            if (answer == 'N' || answer == 'n') {
+
+                printf("----------------------------------------------------\n");
+                printf("Press 0 to return to the main menu or Press 9 to shut down the program.\n");
+
+                scanf("%d", &q);
+
+                if (q == 0) {
+                    c = 0;
+                    goto delta; 
+                } else if (q == 9) {
+                        printf("Exiting...");
+                        exit(0);
+                }else {
+                    printf("Invalid choice. Please try again. ");
+                    goto choice3;
+                }
+
+            }
+            break;
+        case 9:
+            printf("Exiting...");
+            exit(0);
+            break;
+        default:
+            printf("I don't have that option. Please choose the number between 1-5\n");
+    }
+}
+
+int main(void) {
+
+    int c = 0;
+
+    delta:
+    mySwitch(c);
+    printf("--------------------------------------\n");
+    printf("Which one are you wondering?\n");
+    printf("---------------------------------------------------\n");
+    printf("(If you want to stop the program, you can press 9.)\n");
+    printf("---------------------------------------------------\n");
+
+    scanf("%d", &c);
+
+    goto delta; 
+
+    return 0;
+}
